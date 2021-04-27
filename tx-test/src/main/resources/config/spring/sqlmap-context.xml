@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
     <!--  sqlMapClient  설정 -->
-    <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+    <bean id="defaultSqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
         <property name="configLocation" value="classpath:sqlmap/sqlmap-config.xml"/>
         <property name="dataSource" ref="defaultDataSource" />
     </bean>

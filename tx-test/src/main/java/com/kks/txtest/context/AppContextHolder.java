@@ -3,15 +3,15 @@ package com.kks.txtest.context;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.ibatis.sqlmap.client.SqlMapClient;
+
 public class AppContextHolder {
-	public ApplicationContext getApplicationContext() {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:config/spring/root-context.xml");
-		
-		return ctx;
-	}
+	private static ApplicationContext ctx;
 	
-	public static void main(String[] args) {
-		AppContextHolder h = new AppContextHolder();
-		h.getApplicationContext();
+	public static ApplicationContext getApplicationContext() {
+		if(ctx == null) {
+			ctx = new ClassPathXmlApplicationContext("classpath:config/spring/root-context.xml");	
+		}
+		return ctx;
 	}
 }
