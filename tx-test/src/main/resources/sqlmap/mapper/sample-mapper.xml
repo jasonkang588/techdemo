@@ -19,4 +19,9 @@
 		from tb_board
 	</select>
 	
+	<delete id="deletePost" parameterClass="com.kks.txtest.dto.Post">
+		delete from tb_board
+		where no = #no#
+	</delete>
+	
 </sqlMap>

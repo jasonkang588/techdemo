@@ -5,12 +5,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-<!-- 	
-	<context:annotation-config/>
-	<context:component-scan base-package="com.kkscom.demo" />
- -->
 	<bean id="boardDao" class="com.kks.txtest.dao.impl.BoardDaoImpl">
 		<property name="sqlMapClient" ref="defaultSqlMapClient"/>
 	</bean>
+
+	<context:annotation-config/>
+	<context:component-scan base-package="com.kks.txtest" />
  	
 </beans>

@@ -9,7 +9,5 @@
 		lazyLoadingEnabled="true"
 		useStatementNamespaces="true"
 	/>
-	
 	<sqlMap resource="sqlmap/mapper/sample-mapper.xml"/> 
-	
 </sqlMapConfig>

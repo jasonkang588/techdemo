@@ -7,6 +7,12 @@
     <bean id="defaultSqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
         <property name="configLocation" value="classpath:sqlmap/sqlmap-config.xml"/>
         <property name="dataSource" ref="defaultDataSource" />
+        <property name="transactionConfigProperties">
+        <props>
+           <prop key="DefaultAutoCommit">false</prop>
+           <prop key="SetAutoCommitAllowed">true</prop>
+        </props>
+     </property>
     </bean>
 		
 </beans>

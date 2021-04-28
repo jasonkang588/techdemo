@@ -13,7 +13,7 @@
         <property name="username" value="${db.test.username}"/>
         <property name="password" value="${db.test.password}"/>
         <property name="maxActive" value="15" />
-        <property name="initialSize" value="15" />
+        <property name="initialSize" value="3" />
         <property name="maxIdle" value="15" />
         <property name="minIdle" value="15" />
         <property name="testOnBorrow" value="false" />

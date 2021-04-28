@@ -8,8 +8,7 @@
  	<context:property-placeholder location="classpath:config/spring.properties, classpath:config/jdbc.properties"/>
 	
 	<import resource="datasource-context.xml" />
+	<import resource="tx-context.xml" />	
 	<import resource="sqlmap-context.xml" />
-	<import resource="tx-context.xml" />
-	<import resource="application-context.xml" />
-		
+	<import resource="application-context.xml" />		
 </beans>
