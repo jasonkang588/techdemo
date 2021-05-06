@@ -8,7 +8,12 @@ import com.kks.txtest.service.BoardService;
 
 public class BoardServiceTest {
 	
-	public static void main(String[] args) {
+	public void txEventTest() {
+		BoardController c = (BoardController) AppContextHolder.getApplicationContext().getBean("boardController");
+		c.getBoardService().pubEventTest();
+	}
+	
+	public void txTest() {
 //		try {
 //			List<Post> result = BoardService.getInstance().getPostList();
 //			for(Post p : result) {
@@ -19,6 +24,13 @@ public class BoardServiceTest {
 //		}
 		
 		BoardController c = (BoardController) AppContextHolder.getApplicationContext().getBean("boardController");
-		c.getBoardService().removePost();
+		//c.getBoardService().removePost(272);
+		c.getBoardService().removePost(new long[]{272,273,274});
+			
+	}
+	
+	public static void main(String[] args) {
+		BoardServiceTest test = new BoardServiceTest();
+		test.txEventTest();
 	}
 }
