@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="test">
+
+	<select id="test">
+		select 1 from dual
+	</select>
+	
+	<select id="selectBoard" parameterClass="java.util.HashMap" resultClass="com.kks.txtest.dto.Post">
+		select 
+			  TITLE         	as title
+			, NO			 	as no
+			, CREATE_BY		as createBy
+			, UPDATE_BY		as updateBy
+			, to_char(CREATE_TMSTP, 'yyyy-mm-dd hh24:mi:ss.ff6')	as createTmstp
+			, to_char(UPDATE_TMSTP, 'yyyy-mm-dd hh24:mi:ss.ff6')	as updateTmstp
+			, CONTENT			as content
+		from tb_board
+	</select>
+	
+	<delete id="deletePost" parameterClass="com.kks.txtest.dto.Post">
+		delete from tb_board
+		where no = #no#
+	</delete>
+	
+</sqlMap>
