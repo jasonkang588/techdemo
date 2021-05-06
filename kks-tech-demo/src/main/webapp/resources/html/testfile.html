@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<div>
+	<h2>테스트html로드됨</h2>
+	<div>
+		<p id="msg"></p>
+	</div>
+	<script type="text/javascript">
+	var func1 = function() {
+		//$.get(String Url, Object Data, fSucces(Object Data,String TextStatus,jqXHR xhr), String dataType);
+		$.get("http://localhost:8080/jsontest2", {msg:"testfile.html called you!"}, function(data, textStatus, jqXhr) {
+			console.log(data);
+			console.log(JSON.stringify(data));		
+			bindData2(data);	
+		});
+	}
+
+	var func2 = function() {
+		//$.get(String Url, Object Data, fSucces(Object Data,String TextStatus,jqXHR xhr), String dataType);
+		$.get("http://localhost:8080/jsontest", {msg:"testfile.html called you!"}, function(data, textStatus, jqXhr) {
+			console.log(data);
+			console.log(JSON.stringify(data));		
+			bindData(data);	
+		});
+	}
+
+	var bindData = function(pdata) {
+		console.log("bindData!!");
+		console.log($.isPlainObject(pdata));
+		let json = JSON.parse(pdata);
+		console.log(json);	
+		console.log(json.key1);
+		$("#msg").text(json.key1);
+	}
+
+	var bindData2 = function(data) {
+		console.log("bindData!!");
+		console.log($.isPlainObject(data));
+		
+		$("#msg").text(data.data.itemList[0]);
+	}
+
+	$(document).ready(function(){
+		func1();
+	});
+	</script>
+</div>
+

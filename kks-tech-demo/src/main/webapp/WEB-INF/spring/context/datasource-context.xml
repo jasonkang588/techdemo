@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 로컬은 루트 컨텍스트에 단한개만 존재가능 -->
+	<!-- <context:property-placeholder location="classpath:config/jdbc.properties"/> -->
+	
+	<bean id="sampleDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${db.test.driver}" />
+		<property name="url" value="${db.test.url}" />
+		<property name="username" value="${db.test.username}" />
+		<property name="password" value="${db.test.password}" />
+	</bean>
+    		
+</beans>
