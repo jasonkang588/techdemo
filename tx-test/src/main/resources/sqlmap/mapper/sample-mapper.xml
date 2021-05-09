@@ -24,4 +24,39 @@
 		where no = #no#
 	</delete>
 	
+	<insert id="insertPost" parameterClass="com.kks.txtest.dto.Post">
+		<selectKey keyProperty="no" resultClass="Long">
+			SELECT SEQ_POST.NEXTVAL FROM DUAL
+		</selectKey>
+		insert into tb_posts (
+			  TITLE
+			, NO
+			, CREATE_BY
+			, UPDATE_BY
+			, CREATE_TMSTP
+			, UPDATE_TMSTP
+			, CONTENT
+		) values (
+			  #title#
+			, #no#
+			, #createBy#
+			, #updateBy#
+			, systimestamp
+			, systimestamp
+			, #content#
+		)
+	</insert>
+	
+	<select id="selectPost" parameterClass="java.util.HashMap" resultClass="com.kks.txtest.dto.Post">
+		select 
+			  TITLE         	as title
+			, NO			 	as no
+			, CREATE_BY		as createBy
+			, UPDATE_BY		as updateBy
+			, to_char(CREATE_TMSTP, 'yyyy-mm-dd hh24:mi:ss.ff6')	as createTmstp
+			, to_char(UPDATE_TMSTP, 'yyyy-mm-dd hh24:mi:ss.ff6')	as updateTmstp
+			, CONTENT			as content
+		from tb_posts
+	</select>
+	
 </sqlMap>

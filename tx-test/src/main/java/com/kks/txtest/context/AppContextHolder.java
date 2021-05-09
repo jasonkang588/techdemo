@@ -6,12 +6,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 public class AppContextHolder {
-	private static ApplicationContext ctx;
+
+	private static class LazyLoader {
+		private static ApplicationContext ctx;
+		static {
+			ctx = new ClassPathXmlApplicationContext("classpath:config/spring/root-context.xml");
+		}
+	}
 	
 	public static ApplicationContext getApplicationContext() {
-		if(ctx == null) {
-			ctx = new ClassPathXmlApplicationContext("classpath:config/spring/root-context.xml");	
-		}
-		return ctx;
+		return LazyLoader.ctx;
 	}
+	
 }
